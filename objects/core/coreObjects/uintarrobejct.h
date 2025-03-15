@@ -13,5 +13,11 @@ typedef struct {
    uint32_t digit[1] ; 
 }ob_uintValue ;
 
+struct uintarrobject {
+    VarObject_HEAD
+    ob_uintValue ob_data; 
+}; 
+
+DEFINE_STRUCT_HEADER_SIZE(UintArrObject,ob_data.digit) ; 
 #endif
 

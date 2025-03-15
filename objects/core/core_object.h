@@ -34,6 +34,6 @@ DEFINE_STRUCT_HEADER_SIZE(VarObject, size);
 
 // Macro sometimes used to embed a VarObject as "VarObject_HEAD"
 #define VarObject_HEAD VarObject ob_base;
-
+#define CAST_TYPE_OBJ(tp) ((Object*)tp)
 #endif /* CORE_OBJECT_H */
 
