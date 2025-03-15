@@ -1,7 +1,6 @@
 #include "typeobject.h"
+#include "helper.h"
 
-
-extern TypeObject TypeObject_Type ; 
 
 TypeObject UintArrObject_Type ={
    .ob_base = {

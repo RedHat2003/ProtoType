@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-
 // Pull in the definitions of TypeObject, Object, and your global type objects.
 #include "typeobject.h"
 #include "coreObjects/uintarrobejct.h"
-
+#include "coreObjects/arrobejct.h"
 // We expect that both TypeObject_Type and UintArrObject_Type
 // have .ob_base.ob_base.ob_type = &TypeObject_Type
 extern TypeObject TypeObject_Type;       // 'type of all types'
