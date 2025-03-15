@@ -9,7 +9,7 @@
 // have .ob_base.ob_base.ob_type = &TypeObject_Type
 extern TypeObject TypeObject_Type;       // 'type of all types'
 extern TypeObject UintArrObject_Type;    // Another type object
-
+extern TypeObject intArrObject_Type;
 // ANSI color codes for pass/fail highlight
 #define COLOR_GREEN  "\033[32m"
 #define COLOR_RED    "\033[31m"
@@ -52,7 +52,8 @@ int main(void)
     // to the global "type object" we want to check.
     TestCase tests[] = {
         { "TypeObject_Type",      &TypeObject_Type    },
-        { "UintArrObject_Type",   &UintArrObject_Type }
+        { "UintArrObject_Type",   &UintArrObject_Type },
+        { "intArrObject_Type",   &intArrObject_Type }
     };
     const size_t num_tests = sizeof(tests)/sizeof(tests[0]);
     

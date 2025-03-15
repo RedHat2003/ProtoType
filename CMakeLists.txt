@@ -6,6 +6,7 @@ include(CTest)
 add_library(core_lib
     objects/core/typeobject.c
     objects/core/coreObjects/uintarrobejct.c
+    objects/core/coreObjects/arrobejct.c
 )
 
 target_include_directories(core_lib
