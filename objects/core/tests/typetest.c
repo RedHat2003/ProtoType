@@ -5,11 +5,15 @@
 #include "typeobject.h"
 #include "coreObjects/uintarrobejct.h"
 #include "coreObjects/arrobejct.h"
+#include "coreObjects/arrobejct.h"
+#include "dims_alloc.h"
+#include "arrobejct_alloc.h"
 // We expect that both TypeObject_Type and UintArrObject_Type
+
 // have .ob_base.ob_base.ob_type = &TypeObject_Type
 extern TypeObject TypeObject_Type;       // 'type of all types'
-extern TypeObject UintArrObject_Type;    // Another type object
-extern TypeObject intArrObject_Type;
+extern TypeObject UintArrayObject_Type;    // Another type object
+extern TypeObject intArrayObject_Type;
 // ANSI color codes for pass/fail highlight
 #define COLOR_GREEN  "\033[32m"
 #define COLOR_RED    "\033[31m"
@@ -53,10 +57,12 @@ int main(void)
     TestCase tests[] = {
         { "TypeObject_Type",      &TypeObject_Type    },
         { "UintArrObject_Type",   &UintArrObject_Type },
-        { "intArrObject_Type",   &intArrObject_Type }
+        { "intArrObject_Type",   &intArrayObject_Type }
     };
     const size_t num_tests = sizeof(tests)/sizeof(tests[0]);
-    
+    digit dims_arr[3] = {1, 2, 3};
+    Dims* t = MAKE_DIMS(dims_arr) ; 
+    intArrayObject* myintArr = intArrayObject_NEW(t) ; 
     size_t pass_count = 0;
     for (size_t i = 0; i < num_tests; i++) {
         if (run_test_case(&tests[i])) {
@@ -66,6 +72,7 @@ int main(void)
 
     // Print a final summary
     printf("\nTest summary: %zu/%zu passed.\n", pass_count, num_tests);
+    printf("tt = %s\n", myintArr->ob_base.ob_base.ob_type->tp_name);   
     return (pass_count == num_tests) ? 0 : 1;
 }
 
